@@ -3,52 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SafraNet — rastreabilidade de produtos agropecuários com origem verificada, conformidade e certificado digital.">
     <title>SafraNet | Rastreabilidade Garantida</title>
-    <link rel="icon" type="image/svg+xml" href="safranet.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/safranet.svg">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .gradient-bg { background: linear-gradient(135deg, #1e3a1f 0%, #2d5a27 100%); }
-        .timeline-dot { width: 32px; height: 32px; background: #2d5a27; border: 4px solid #fff; border-radius: 50%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; }
-        .success-pulse { animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
-        /* Estilo para imagem minimalista (sem animação) */
-        .floating-img {
-            filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.15));
-            width: 100%;
-            max-width: 340px;
-            display: block;
-            margin: -30px auto 10px auto;
-            position: relative;
-            z-index: 10;
-        }
-        /* Animação do Accordion (Timeline) */
-        .accordion-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease-out;
-            opacity: 0;
-        }
-        .accordion-content.open {
-            grid-template-rows: 1fr;
-            opacity: 1;
-        }
-        .accordion-inner {
-            overflow: hidden;
-        }
-        .chevron {
-            transition: transform 0.3s ease-in-out;
-        }
-        .chevron.open {
-            transform: rotate(180deg);
-        }
-    </style>
 </head>
 <body class="bg-slate-50">
 
@@ -58,7 +20,7 @@
             <div class="flex items-center gap-2">
                 <!-- Logo SafraNet anexada -->
                 <div class="bg-white rounded-full p-2 w-16 h-16 flex items-center justify-center shadow-lg border-2 border-green-100">
-                    <img src="safranet.svg" alt="SafraNet Logo" class="h-12 w-auto object-contain">
+                    <img src="assets/images/safranet.svg" alt="SafraNet Logo" class="h-12 w-auto object-contain" width="48" height="48">
                 </div>
             </div>
             <div class="bg-green-500/20 px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30 flex items-center gap-1">
@@ -96,10 +58,10 @@
 
         <!-- Product Image - Flutuante e Minimalista -->
         <div class="relative mb-12 mt-8 flex flex-col items-center justify-center">
-            <img src="picanha.png" alt="Picanha Premium" class="floating-img">
+            <img src="assets/images/picanha.png" alt="Picanha Premium" class="floating-img" width="340" height="255" loading="lazy" decoding="async">
             <div class="bg-white/90 backdrop-blur px-5 py-2.5 rounded-full shadow-md border border-slate-100 relative z-20 flex items-center gap-3">
                 <p class="text-sm font-bold text-slate-800">Origem: Sorriso, Mato Grosso</p>
-                <img src="Bandeira_de_Mato_Grosso.svg.png" alt="Bandeira Mato Grosso" class="w-6 h-6 rounded-full object-cover border border-slate-200">
+                <img src="assets/images/Bandeira_de_Mato_Grosso.svg.png" alt="Bandeira Mato Grosso" class="w-6 h-6 rounded-full object-cover border border-slate-200" width="24" height="24" loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -112,7 +74,7 @@
         <div class="space-y-8 relative">
 
             <!-- Step 1 -->
-            <div class="flex gap-4 relative cursor-pointer group" onclick="toggleAccordion('step1')">
+            <div class="flex gap-4 relative cursor-pointer group timeline-step-trigger" data-accordion-step="step1" role="button" tabindex="0" aria-expanded="false" aria-controls="content-step1">
                 <div class="absolute left-[15px] top-[32px] bottom-[-32px] w-[2px] bg-slate-200 z-[1]"></div>
                 <div class="timeline-dot group-hover:scale-110 transition-transform">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -145,7 +107,7 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="flex gap-4 relative cursor-pointer group" onclick="toggleAccordion('step2')">
+            <div class="flex gap-4 relative cursor-pointer group timeline-step-trigger" data-accordion-step="step2" role="button" tabindex="0" aria-expanded="false" aria-controls="content-step2">
                 <div class="absolute left-[15px] top-[32px] bottom-[-32px] w-[2px] bg-slate-200 z-[1]"></div>
                 <div class="timeline-dot group-hover:scale-110 transition-transform">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M20 12h2"/><path d="M2 12h2"/></svg>
@@ -178,7 +140,7 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="flex gap-4 relative cursor-pointer group" onclick="toggleAccordion('step3')">
+            <div class="flex gap-4 relative cursor-pointer group timeline-step-trigger" data-accordion-step="step3" role="button" tabindex="0" aria-expanded="false" aria-controls="content-step3">
                 <div class="absolute left-[15px] top-[32px] bottom-[-32px] w-[2px] bg-slate-200 z-[1]"></div>
                 <div class="timeline-dot group-hover:scale-110 transition-transform">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V9l4-2 6.7 3.3L18 7l4 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M18 17h.01"/><path d="M14 17h.01"/><path d="M10 17h.01"/><path d="M6 17h.01"/></svg>
@@ -211,7 +173,7 @@
             </div>
 
             <!-- Step 4 -->
-            <div class="flex gap-4 relative cursor-pointer group" onclick="toggleAccordion('step4')">
+            <div class="flex gap-4 relative cursor-pointer group timeline-step-trigger" data-accordion-step="step4" role="button" tabindex="0" aria-expanded="false" aria-controls="content-step4">
                 <div class="timeline-dot group-hover:scale-110 transition-transform">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </div>
@@ -268,11 +230,11 @@
 
         <!-- Call to Actions -->
         <div class="mt-8 space-y-3">
-            <button id="downloadBtn" class="w-full bg-white border border-slate-200 text-slate-800 font-bold py-4 rounded-xl shadow-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            <button type="button" id="downloadBtn" class="w-full bg-white border border-slate-200 text-slate-800 font-bold py-4 rounded-xl shadow-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download Certificado Digital
             </button>
-            <button onclick="window.open('https://www.google.com/maps/@-12.5594191,-55.7231454,5827m/data=!3m1!1e3?entry=ttu', '_blank')" class="w-full bg-white border border-slate-200 text-slate-800 font-bold py-4 rounded-xl shadow-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            <button type="button" id="openOriginMapBtn" class="w-full bg-white border border-slate-200 text-slate-800 font-bold py-4 rounded-xl shadow-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 Ver Mapa de Origem Satélite
             </button>
@@ -312,7 +274,7 @@
                             </li>
                             <li class="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                Estância Nossa Senhora Aparecida , Arnaldo Schmitz e filhos, Cerejeiras - RO, 76997-000
+                                Av. Faria Lima, 1000 - SP
                             </li>
                         </ul>
                     </div>
@@ -321,7 +283,7 @@
             <div class="border-t border-slate-800 pt-8 text-center">
                 <div class="flex justify-center items-center gap-3 mb-4">
                     <div class="bg-white rounded-full p-1.5 w-10 h-10 flex items-center justify-center">
-                        <img src="safranet.svg" alt="SafraNet Logo" class="h-6 w-auto">
+                        <img src="assets/images/safranet.svg" alt="SafraNet Logo" class="h-6 w-auto" width="32" height="32">
                     </div>
                     <span class="text-white font-bold tracking-widest uppercase text-sm">SafraNet</span>
                 </div>
@@ -330,141 +292,8 @@
         </div>
     </footer>
 
-    <script>
-        // Funcionalidade de Download do Certificado em PDF Profissional
-        document.getElementById('downloadBtn').addEventListener('click', function() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
-            });
-            
-            // Cores
-            const primaryGreen = [30, 58, 31];
-            const accentGreen = [74, 222, 128];
-            const textDark = [50, 50, 50];
-            const textLight = [100, 100, 100];
-
-            // Cabeçalho (Faixa Verde)
-            doc.setFillColor(primaryGreen[0], primaryGreen[1], primaryGreen[2]);
-            doc.rect(0, 0, 210, 45, 'F');
-            
-            // Título do Cabeçalho
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(28);
-            doc.setFont("helvetica", "bold");
-            doc.text("SAFRANET", 105, 22, { align: "center" });
-            
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text("CERTIFICADO DE AUTENTICIDADE BLOCKCHAIN", 105, 32, { align: "center" });
-
-            // Corpo do Certificado
-            doc.setTextColor(textDark[0], textDark[1], textDark[2]);
-            doc.setFontSize(16);
-            doc.setFont("helvetica", "bold");
-            doc.text("Detalhes do Produto", 20, 65);
-            
-            // Linha separadora
-            doc.setDrawColor(200, 200, 200);
-            doc.line(20, 70, 190, 70);
-
-            // Informações
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "bold");
-            doc.text("Produto:", 20, 85);
-            doc.setFont("helvetica", "normal");
-            doc.text("Picanha Premium", 50, 85);
-
-            doc.setFont("helvetica", "bold");
-            doc.text("Lote:", 20, 95);
-            doc.setFont("helvetica", "normal");
-            doc.text("#RZ-2026-MT042", 50, 95);
-
-            doc.setFont("helvetica", "bold");
-            doc.text("Origem:", 20, 105);
-            doc.setFont("helvetica", "normal");
-            doc.text("Fazenda Sol Nascente, Sorriso - Mato Grosso", 50, 105);
-
-            doc.setFont("helvetica", "bold");
-            doc.text("Emissão:", 20, 115);
-            doc.setFont("helvetica", "normal");
-            doc.text(new Date().toLocaleDateString('pt-BR') + " às " + new Date().toLocaleTimeString('pt-BR'), 50, 115);
-            
-            // Caixa de Hash Blockchain
-            doc.setFillColor(245, 250, 247);
-            doc.rect(20, 135, 170, 40, 'F');
-            doc.setDrawColor(accentGreen[0], accentGreen[1], accentGreen[2]);
-            doc.setLineWidth(0.5);
-            doc.rect(20, 135, 170, 40, 'S');
-            
-            doc.setFontSize(10);
-            doc.setTextColor(textLight[0], textLight[1], textLight[2]);
-            doc.text("BLOCKCHAIN TX HASH (ERC-721 SafraProof):", 25, 148);
-            
-            doc.setFontSize(12);
-            doc.setFont("courier", "bold");
-            doc.setTextColor(21, 128, 61); // Verde forte
-            doc.text("0x8a9b34772c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r", 25, 160);
-            
-            // Selo de Verificação
-            doc.setTextColor(textDark[0], textDark[1], textDark[2]);
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("STATUS: VERIFICADO E IMUTÁVEL", 105, 200, { align: "center" });
-            
-            // Assinatura / Validação
-            doc.setFillColor(245, 248, 255);
-            doc.rect(20, 220, 170, 45, 'F');
-            doc.setDrawColor(100, 150, 250);
-            doc.setLineWidth(0.5);
-            doc.rect(20, 220, 170, 45, 'S');
-
-            doc.setFontSize(10);
-            doc.setFont("helvetica", "bold");
-            doc.setTextColor(textDark[0], textDark[1], textDark[2]);
-            doc.text("ASSINATURA DIGITAL QUALIFICADA (ICP-Brasil)", 25, 230);
-
-            doc.setFontSize(9);
-            doc.setFont("helvetica", "normal");
-            doc.text("Assinado digitalmente por: SAFRANET TECNOLOGIA AGRICOLA S.A", 25, 238);
-            doc.text("Data e Hora: " + new Date().toLocaleDateString('pt-BR') + " " + new Date().toLocaleTimeString('pt-BR') + " (BRT)", 25, 244);
-            doc.text("Chave de Verificação Pública: 3F2504E0-4F89-11D3-9A0C-0305E82C3301", 25, 250);
-            
-            doc.setFont("courier", "normal");
-            doc.setFontSize(8);
-            doc.setTextColor(textLight[0], textLight[1], textLight[2]);
-            doc.text("Hash do Documento: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 25, 258);
-
-            // Rodapé
-            doc.setFontSize(9);
-            doc.setFont("helvetica", "normal");
-            doc.text("SafraNet Tecnologia Agrícola © 2026 - Rastreabilidade Garantida", 105, 280, { align: "center" });
-            doc.text("Verifique a autenticidade deste documento em safranet.com.br/verify", 105, 285, { align: "center" });
-            
-            // Salvar PDF
-            doc.save('Certificado_SafraNet_RZ2026.pdf');
-        });
-
-        // Funcionalidade do Accordion da Timeline
-        function toggleAccordion(stepId) {
-            const content = document.getElementById('content-' + stepId);
-            const chevron = document.getElementById('chevron-' + stepId);
-            
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                chevron.classList.remove('open');
-            } else {
-                // Fechar todos os outros
-                document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
-                document.querySelectorAll('.chevron').forEach(el => el.classList.remove('open'));
-                
-                // Abrir o clicado
-                content.classList.add('open');
-                chevron.classList.add('open');
-            }
-        }
-    </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script defer src="js/timeline-accordion.js"></script>
+    <script defer src="js/certificate-pdf.js"></script>
 </body>
 </html>
